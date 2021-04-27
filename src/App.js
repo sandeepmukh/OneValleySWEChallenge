@@ -23,6 +23,13 @@ const theme = createMuiTheme({
 const imgPath = "https://passport-media.s3-us-west-1.amazonaws.com/images/eng-intern-interview/fruit-images.json";
 const descriptionPath = "https://www.fruityvice.com/api/fruit/"
 
+const config = {
+  "headers": { 
+    'x-apikey': '59a7ad19f5a9fa0808f11931',
+    'Access-Control-Allow-Origin' : '*',
+    'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+  }
+}
 
 function getData() {
   var images = [
@@ -42,7 +49,7 @@ function getData() {
     "https://passport-media.s3-us-west-1.amazonaws.com/images/eng-intern-interview/tomato.png",
     "https://passport-media.s3-us-west-1.amazonaws.com/images/eng-intern-interview/watermelon.png"
   ];
-  axios.get(imgPath)
+  axios.get("http://127.0.0.1:5000/api/imgs", config)
     .then(function (response) {
       images = response;
     })
@@ -67,7 +74,7 @@ function getData() {
           "sugar": 10.3
       }
   }
-    axios.get(descriptionPath+name)
+    axios.post("http://127.0.0.1:5000/api/getFruit", {"name":name}, config)
     .then((response) => {
       facts = response;
     })
@@ -81,6 +88,7 @@ function getData() {
       + (facts.nutritions.calories > 40 ? " A lot, right?" : " Not too many, right?")
     }
   });
+  console.log(dataObj)
   return dataObj;
 }
 
