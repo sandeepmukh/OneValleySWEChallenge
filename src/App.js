@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { createMuiTheme, Typography } from '@material-ui/core';
 import { Gallery } from "./components/Gallery.jsx";
