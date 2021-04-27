@@ -49,7 +49,7 @@ function getData() {
     "https://passport-media.s3-us-west-1.amazonaws.com/images/eng-intern-interview/tomato.png",
     "https://passport-media.s3-us-west-1.amazonaws.com/images/eng-intern-interview/watermelon.png"
   ];
-  axios.get("http://127.0.0.1:5000/api/imgs", config)
+  axios.get("https://one-valley-swec-hallenge-nkoar4ngg-sandeepmukh.vercel.app/api/imgs", config)
     .then(function (response) {
       images = response;
     })
@@ -74,7 +74,7 @@ function getData() {
           "sugar": 10.3
       }
   }
-    axios.post("http://127.0.0.1:5000/api/getFruit", {"name":name}, config)
+    axios.post("https://one-valley-swec-hallenge-nkoar4ngg-sandeepmukh.vercel.app/api/getFruit", {"name":name}, config)
     .then((response) => {
       facts = response;
     })
